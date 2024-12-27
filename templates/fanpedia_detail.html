@@ -1,0 +1,9 @@
+{% extends '_base.html' %}
+
+{% block title %}{{ fanpedia.title }}{% endblock title %}
+
+{% block content %}
+<h2>{{ fanpedia.title }}</h2>
+<p>{{ fanpedia.description }}</p>
+<a href="{% url 'home' %}" class="btn btn-outline-primary">Back to Home</a>
+{% endblock content %}

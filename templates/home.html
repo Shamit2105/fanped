@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<h2>FanPedia List</h2>
+<ul>
+    {% for fp in fanpedia_list %}
+        <li>
+            <a href="{% url 'fanpedia_detail' slug=fp.slug %}">{{ fp.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% if user.is_authenticated %}
+    Hi {{ user.email }}!
+    <br>
+    <a class="btn btn-outline-success" href="{% url 'fanpedia_create' %}">Create FanPedia</a>
+{% else %}
+    <p>You are not logged in</p>
+{% endif %}
+{% endblock content %}
